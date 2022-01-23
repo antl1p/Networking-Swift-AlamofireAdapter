@@ -13,16 +13,17 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Networking-Swift-AlamofireAdapter",
+            name: "AlamofireAdapter",
             targets: ["AlamofireAdapter"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/antl1p/Networking-Swift", branch: "main"),
         .package(url: "https://github.com/Alamofire/Alamofire", from: "5.5.0"),
     ],
     targets: [
         .target(
             name: "AlamofireAdapter",
-            dependencies: []),
+            dependencies: ["Networking-Swift", "Alamofire"]),
         .testTarget(
             name: "AlamofireAdapterTests",
             dependencies: ["AlamofireAdapter"]),
